@@ -1,6 +1,6 @@
 {
     "name": "hoursforsell",
-    "version": "0.2",
+    "version": "1.0.0",
     "description": "Script created and developed by The M. Free to use, with credits to author.",
     "main": "app.js",
     "scripts": {
@@ -26,10 +26,12 @@
     "homepage": "https://github.com/TheMBots/HoursForSell#readme",
     "dependencies": {
         "axios": "^0.27.2",
+        "colors": "^1.4.0",
         "dayjs": "^1.11.3",
         "dotenv": "^16.0.1",
         "eventemitter3": "^4.0.7",
         "steam-user": "^4.24.3",
-        "steamcommunity": "^3.44.1"
+        "steamcommunity": "^3.44.1",
+        "steamstore": "^2.2.1"
     }
 }
