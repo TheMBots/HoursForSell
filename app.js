@@ -1,6 +1,8 @@
 const Account = require('./Account');
-const konta = [];
-konta.push(new Account({
-    login: 'Login',
-    password: 'Password'
-}))
+const accounts = [];
+accs.forEach((acc) => {
+    accounts.push(new Account({
+        login: acc.login,
+        password: acc.password
+    }))
+})

@@ -1,0 +1,27 @@
+{
+    "name": "hoursforsell",
+    "version": "0.1",
+    "description": "Script created and developed by The M. Free to use, with credits to author.",
+    "main": "app.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/TheMBots/HoursForSell.git"
+    },
+    "keywords": [
+      "steam",
+      "bot",
+      "idle",
+      "hours",
+      "nodejs",
+      "node"
+    ],
+    "author": "The M.",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/TheMBots/HoursForSell/issues"
+    },
+    "homepage": "https://github.com/TheMBots/HoursForSell#readme"
+  }
