@@ -1,0 +1,21 @@
+{
+    "editProfile":{
+        "name": "HourBoost | The M. Idle",
+        "realName": "The M.#6175",
+        "summary": "[b]I'm idling hours using The M. Idle service![/b]",
+        "country": "PL"
+    },
+    "profileSettings": {
+        "profile": 3,
+        "comments": 3,
+        "inventory": 3,
+        "inventoryGifts": false,
+        "gameDetails": 3,
+        "playtime": false,
+        "friendsList": 3
+    },
+    "games": [
+        "The M. Idle",
+        730
+    ]
+}
