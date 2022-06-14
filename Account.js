@@ -20,7 +20,9 @@ module.exports = function(accountData){
     gameList.forEach((game) => gameListed.push(game));
     this.games = gameListed;
     this.client.logOn(this.logOnOptions);
-    this.client.on('loggedOn', () => {
+    this.client.on('loggedOn', (details, parental) => {
+        this.steamID64 = details.client_supplied_steamid;
+        this.vanityUrl = details.vanity_url;
         this.eventHandler.emit('loggedIn', this.logOnOptions.accountName);
         this.client.setPersona(1, `Hours | The M. Idle`);
         this.client.gamesPlayed(this.games, true);
@@ -39,7 +41,7 @@ module.exports = function(accountData){
     this.relogin = function(){ this.client.relog(); };
     this.restart = function(){ setTimeout(() => { this.client.relog(); })};
     this.checkHours = function(){
-        axios.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${steamApiKey}&steamid=${this.steamID64}&format=json`)
+        axios.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${process.env.STEAMAPIKEY}&steamid=${this.steamID64}&format=json`)
             .then(function (response) { response.data.response.games.forEach((game) => {
                 if(game.appid === '730') console.log(game.playtime_forever)
             }) })

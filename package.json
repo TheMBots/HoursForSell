@@ -1,6 +1,6 @@
 {
     "name": "hoursforsell",
-    "version": "0.1",
+    "version": "0.2",
     "description": "Script created and developed by The M. Free to use, with credits to author.",
     "main": "app.js",
     "scripts": {
