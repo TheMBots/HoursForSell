@@ -53,7 +53,7 @@ module.exports = function(accountData){
             this.client.chatMessage(steamID, `Thank you for adding me to your friendlist! \nI'm idling hours using The M. Idle service!\n https://discord.gg/t3xxnCfd3k`);
         }
     });
-    this.lient.on('groupRelationship', async (steamID, relationship) => {
+    this.client.on('groupRelationship', async (steamID, relationship) => {
         if (relationship === 2){
             this.eventHandler.emit('newGroupInvite', this.logOnOptions.accountName, steamID);
             log(`New group join request. [${steamID}]`, accountData.login)
