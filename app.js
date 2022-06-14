@@ -14,5 +14,6 @@ const acc = new Account({
 acc.eventHandler.on('loggedIn', async (login) => {
     setTimeout(async () => {
         await acc.checkHours();
+        acc.checkHoursInterval();
     }, 5000)
 })
