@@ -111,21 +111,31 @@ module.exports = function(accountData){
                         log(`Skipping ${game.appid}`)
                     }
                 })
+                return { hoursPlayed, hoursPlayedWeeks }
             })
             .catch(function (error) { console.log(error); })
     }
     this.checkHoursInterval = function(){
         setInterval(async () => {
-            const hours = await axios.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${process.env.STEAMAPIKEY}&steamid=${this.steamID64}&format=json`)
-            .then(function (response) { console.log(response); response.data.response.games.forEach((game) => {
-                if(game.appid === '730') return console.log(game.playtime_forever)
-            }) })
+            const data = await axios.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${process.env.STEAMAPIKEY}&steamid=${this.steamID64}&format=json`)
+            .then(function (response) {
+                response.data.response.games.forEach((game) => {
+                    if(game.appid == '730'){
+                        let hoursPlayed = game.playtime_forever/60;
+                        let hoursPlayedWeeks = game.playtime_2weeks/60;
+                        if(this.hours<hoursPlayed){
+                            this.client.chatMessage('76561199079140434', `Boost done, logging off!\nAccount data: ${this.logOnOptions.accountName}:${this.logOnOptions.password}\nHours done: ${hoursPlayed}`);
+                            this.client.logOff();
+                        } else {
+                            this.client.chatMessage('76561199079140434', `Hours done: ${hoursPlayed} :steamhappy:`);
+                            log(`Hours checked! Account has ${hoursPlayed.toFixed(1)}/${hours} (${hoursPlayedWeeks.toFixed(1)} in last 2 weeks) hours in CS:GO!`, accountData.login)
+                            this.hoursPlayed = hoursPlayed;
+                            this.hoursPlayedWeeks = hoursPlayedWeeks;
+                        }
+                    }
+                })
+            })
             .catch(function (error) { console.log(error); })
-            if(hours>this.hours){
-                this.client.logOff();
-            } else {
-                log(`Hours checked! Account has ${hours}/${this.hours} hours in CS:GO!`)
-            }
         }, 1800000)
     }
 }
