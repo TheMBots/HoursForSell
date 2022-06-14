@@ -4,24 +4,32 @@
     "description": "Script created and developed by The M. Free to use, with credits to author.",
     "main": "app.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/TheMBots/HoursForSell.git"
+        "type": "git",
+        "url": "git+https://github.com/TheMBots/HoursForSell.git"
     },
     "keywords": [
-      "steam",
-      "bot",
-      "idle",
-      "hours",
-      "nodejs",
-      "node"
+        "steam",
+        "bot",
+        "idle",
+        "hours",
+        "nodejs",
+        "node"
     ],
     "author": "The M.",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/TheMBots/HoursForSell/issues"
+        "url": "https://github.com/TheMBots/HoursForSell/issues"
     },
-    "homepage": "https://github.com/TheMBots/HoursForSell#readme"
-  }
+    "homepage": "https://github.com/TheMBots/HoursForSell#readme",
+    "dependencies": {
+        "axios": "^0.27.2",
+        "dayjs": "^1.11.3",
+        "dotenv": "^16.0.1",
+        "eventemitter3": "^4.0.7",
+        "steam-user": "^4.24.3",
+        "steamcommunity": "^3.44.1"
+    }
+}
